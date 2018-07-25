@@ -8,8 +8,8 @@
   }
   
   .App-header {
-    background-color: #222;
-    height: 150px;
+    background-color: #0472b6;
+    height: 64px;
     padding: 20px;
     color: white;
   }
@@ -25,5 +25,9 @@
   @keyframes App-logo-spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+  }
+
+  .App-Header-Logo {
+    
   }
   

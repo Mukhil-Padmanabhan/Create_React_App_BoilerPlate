@@ -77,7 +77,7 @@ export default class Login extends Component {
 const Button = withRouter(({ history }) => (
     <button
       type='button'
-      onClick={() => { history.push('/createPatient') }}
+      onClick={() => { history.push('/patientList') }}
     >
       Login
     </button>
