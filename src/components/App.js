@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from '../containers/RxNT_Logo_White.png';
 import '../containers/App.css';
 import Login from './Login';
-import PatientList from './patient-list/patientList'
+//import PatientList from './patient-list/patientList'
 import CreatePatient from './create-patient/createPatient';
 import {HashRouter, Route, Link, Redirect} from 'react-router-dom';
 
@@ -18,11 +18,11 @@ class App extends React.Component {
         <div>
             <div>
             <header className="App-header">
-              <img src={logo} alt="logo" />
-              <h1 className="App-title">Welcome to My React</h1>
+              <img src={logo} className="App-Header-Logo" alt="logo" />
+              {/* <h1 className="App-title">Welcome to My React</h1> */}
             </header>
               <div>
-                {/* <Redirect to={'/'} /> */}
+                <Redirect to={'/login'} />
                 <Route exact path="/login" render={(props) => ( <Login/> )} />
                 <Route exact path="/patientList" render={(props) => ( <CreatePatient/> )} />
               </div>

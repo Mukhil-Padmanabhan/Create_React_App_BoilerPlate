@@ -9,7 +9,7 @@
   
   .App-header {
     background-color: #0472b6;
-    height: 64px;
+    height: 102px;
     padding: 20px;
     color: white;
   }
@@ -28,6 +28,9 @@
   }
 
   .App-Header-Logo {
-    
-  }
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* width: 50%; */
+  }    
   
