@@ -73,4 +73,17 @@
   line-height: 1.33;
   border-radius: 25px;
 }
+
+.tab-content {
+  /*position: relative;*/
+  z-index: 10;
+  overflow: visible;
+  background: #FFFFFF;
+  padding: 15px;
+  border-radius: 0px;
+  border-top-left-radius: 0;
+  -webkit-box-shadow: 0px 1px 5px 1px rgba(221,221,221,0.75);
+  -moz-box-shadow: 0px 1px 5px 1px rgba(221,221,221,0.75);
+  box-shadow: 0px 1px 5px 1px rgba(221,221,221,0.75);
+}
   

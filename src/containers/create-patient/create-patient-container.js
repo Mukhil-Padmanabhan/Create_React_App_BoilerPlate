@@ -22,7 +22,7 @@ export default class CreatePatientContainer extends React.Component {
     render() {
         return (
             //<div> Hi </div>
-            <Form horizontal >
+            <Form className="tab-content" horizontal  >
                 <div className="row">
                     <div className="col-md-9 col-sm-9 col-sx-9">
                         <h4>
@@ -58,11 +58,11 @@ export default class CreatePatientContainer extends React.Component {
 
 
                 <Grid>
-                    <Row className="show-grid">
+                    <Row className="show-grid tab-content">
                         <Col lg={4} sm={4} md={4} xs={4} >
                             <br />
                             <div id="mainView">
-                                <div className="tab-content">
+                                <div>
                                     <FormGroup >
                                         <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
                                             First Name
@@ -189,7 +189,7 @@ export default class CreatePatientContainer extends React.Component {
                         <Col  lg={4} sm={4} md={4} xs={4} >
                             <br />
                             <div id="mainView">
-                                <div className="tab-content">
+                                <div>
                                     <FormGroup >
                                         <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
                                             Chart #
@@ -321,7 +321,7 @@ export default class CreatePatientContainer extends React.Component {
 
                             <br />
                             <div id="mainView">
-                                <div className="tab-content">
+                                <div>
                                     <FormGroup >
                                         <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
                                             First Name
