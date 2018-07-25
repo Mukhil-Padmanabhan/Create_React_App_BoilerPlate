@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../containers/RxNT_Logo_White.png';
 import '../containers/App.css';
-import Login from './Login';
+import Login from '../components/login/login-component';
 //import PatientList from './patient-list/patientList'
 import CreatePatient from './create-patient/createPatient';
 import {HashRouter, Route, Link, Redirect} from 'react-router-dom';
