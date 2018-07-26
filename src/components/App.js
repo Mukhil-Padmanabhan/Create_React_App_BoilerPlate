@@ -3,7 +3,7 @@ import logo from '../containers/RxNT_Logo_White.png';
 import '../containers/App.css';
 import Login from '../components/login/login-component';
 //import PatientList from './patient-list/patientList'
-import CreatePatient from './create-patient/createPatient';
+import CreatePatient from './create-patient/create-patient-component';
 import {HashRouter, Route, Link, Redirect} from 'react-router-dom';
 
 

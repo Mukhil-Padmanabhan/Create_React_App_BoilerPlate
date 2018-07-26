@@ -1,0 +1,20 @@
+export default {
+    firstName: "",
+    middleName: "",
+    placeOfService: "",
+    dateOfBirth: "",
+    address1: "",
+    zip: "",
+    city: "",
+    state: "",
+    chartId: "",
+    externalPatientId: "",
+    martialStatus: "",
+    employmentStatus: "",
+    ethnicity: "",
+    preferredLanguage: "",
+    referredByPhysician: "",
+    referringProvider: "",
+    dateReferred: "",
+
+}
