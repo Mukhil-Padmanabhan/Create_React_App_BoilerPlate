@@ -17,7 +17,7 @@ body {
 	font-size: 14px;
 	line-height: 20px;
 	color: #333333;
-	background: url(../images/bg.gif) repeat-x 0px 45px;
+	/* background: url(../images/bg.gif) repeat-x 0px 45px; */
 	height: 100%;
 }
 article,
@@ -248,7 +248,7 @@ th {
 	margin-bottom: 20px;
 	overflow: visible;
 }
-.navbar-inner {
+/* .navbar-inner {
 	min-height: 45px;
 	padding-right: 20px;
 	padding-left: 20px;
@@ -257,7 +257,7 @@ th {
 	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
 	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
 	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
-}
+} */
 .navbar-inner:before, .navbar-inner:after {
 	display: table;
 	line-height: 0;
@@ -339,7 +339,7 @@ th {
 	right: 12px;
 	top: 12px;
 }
-.navbar-inner #leftmenu a {
+/* .navbar-inner #leftmenu a {
 	background: url(../img/header/menu.png) 0px 6px no-repeat;
 	color: #d1dadf;
 	padding-left: 24px;
@@ -347,8 +347,8 @@ th {
 	line-height: 17px;
 	font-size: 17px;
     font-family:Verdana;
-}
-.navbar-inner #rightmenu a {
+} */
+/* .navbar-inner #rightmenu a {
 	background: url(../img/header/utilities.png) 0px 3px no-repeat;
 	color: #d1dadf;
 	padding-left: 24px;
@@ -356,7 +356,7 @@ th {
 	line-height: 17px;
 	font-size: 17px;
     font-family:Verdana;
-}
+} */
 
 
 .navbar .brand {
@@ -382,12 +382,12 @@ th {
 	float: right;
 	margin-right: 0;
 }
-.navbar .nav > li {
+/* .navbar .nav > li {
 	float: left;
 	background: url(../../Images/img/nav/navitem.gif) left no-repeat;
 	height: 44px;
 	padding: 0px 15px;
-}
+} */
 .navbar .nav > li.fright {
 	float: right;
 }
@@ -5972,7 +5972,7 @@ button.close {
   }
 }
 
-.headermenulink {
+/* .headermenulink {
 background: url(/Resources/img/header/menu.png) 0px 3px no-repeat;
 	color: #d1dadf;
 	padding-left: 24px;
@@ -5980,9 +5980,9 @@ background: url(/Resources/img/header/menu.png) 0px 3px no-repeat;
 	line-height: 17px;
 	font-size: 17px;
     font-family:Verdana;
-}
+} */
 
-.headerutillink {
+/* .headerutillink {
 background: url(/Resources/img/header/utilities.png) 0px 3px no-repeat;
 	color: #d1dadf;
 	padding-left: 24px;
@@ -5990,7 +5990,7 @@ background: url(/Resources/img/header/utilities.png) 0px 3px no-repeat;
 	line-height: 17px;
 	font-size: 17px;
     font-family:Verdana;
-}
+} */
 
 
 

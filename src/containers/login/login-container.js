@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import {  FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import {  FormGroup, FormControl, ControlLabel, Button } from "react-bootstrap";
 import "./Login.css";
-import { withRouter } from 'react-router-dom';
 
 export default class LoginContainer extends Component {
   constructor(props) {
@@ -21,7 +20,7 @@ export default class LoginContainer extends Component {
             <ControlLabel>Email</ControlLabel>
             <FormControl
               autoFocus
-              type="email"
+             // type="email"
               //value={this.state.email}
               onChange={handleChange}
             />
@@ -36,10 +35,10 @@ export default class LoginContainer extends Component {
           </FormGroup>
           <Button
             block
+            className="btn btn-primary"
             bsSize="large"
             disabled={!validateForm}
             type="submit"
-           
           >
             Login
           </Button>
@@ -48,14 +47,3 @@ export default class LoginContainer extends Component {
     );
   }
 }
-
-
-
-const Button = withRouter(({ history }) => (
-    <button
-      type='button'
-      onClick={() => { history.push('/patientList') }}
-    >
-      Login
-    </button>
-  ))

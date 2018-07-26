@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../containers/RxNT_Logo_White.png';
 import '../containers/App.css';
+//import '../Resources/CSS/RxNTStyles.css'
 import Login from '../components/login/login-component';
 //import PatientList from './patient-list/patientList'
 import CreatePatient from './create-patient/createPatient';
@@ -23,8 +24,8 @@ class App extends React.Component {
             </header>
               <div>
                 <Redirect to={'/login'} />
-                <Route exact path="/login" render={(props) => ( <Login/> )} />
-                <Route exact path="/patientList" render={(props) => ( <CreatePatient/> )} />
+                <Route exact path="/login" render={(props) => ( <Login routerProps={props}/> )} />
+                <Route exact path="/patientList" render={(props) => ( <CreatePatient routerProps={props}/> )} />
               </div>
             </div>
         </div>
