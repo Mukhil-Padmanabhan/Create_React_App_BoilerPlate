@@ -4,7 +4,7 @@ import '../containers/App.css';
 //import '../Resources/CSS/RxNTStyles.css'
 import Login from '../components/login/login-component';
 //import PatientList from './patient-list/patientList'
-import CreatePatient from './create-patient/createPatient';
+import CreatePatient from './create-patient/create-patient-component';
 import {HashRouter, Route, Link, Redirect} from 'react-router-dom';
 
 
