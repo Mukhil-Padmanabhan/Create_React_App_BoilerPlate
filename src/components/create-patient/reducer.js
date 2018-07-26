@@ -46,6 +46,11 @@ export default function createPatientReducer(state = initialState, action = {}) 
                 ...state,
                 sex : action.sex
             }
+        case types.ONSUBMIT_ADD_PATIENT :
+            return {
+                ...state,
+                responseArr : action.responseArr
+            }
         default:
             return state;
     }

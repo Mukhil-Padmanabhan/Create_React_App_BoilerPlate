@@ -11,21 +11,20 @@ class createPatient extends React.Component {
       this.handleSubmit = this.handleSubmit.bind(this);
       this.handleDateSelections = this.handleDateSelections.bind(this);
       this.handleDropdownChange = this.handleDropdownChange.bind(this);
-      this.handleRadioChange =  this.handleRadioChange.bind(this)
+      this.handleRadioChange =  this.handleRadioChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
 	}
     handleBlur = event => {
-      debugger;
         var {onBlurHandler} = this.props.actions;
         onBlurHandler(event)
     }
 
-    handleSubmit = event => {
-        event.preventDefault();
-        var {onSubmitHandler} = this.props.actions;
-        onSubmitHandler(event)
+    handleSubmit (event){
+        var {submitHandler} = this.props.actions;
+        submitHandler(event)
     }
     handleDateSelections(date, prop) {
-      debugger;
+
         var { handleDateChanges} = this.props.actions;
         handleDateChanges(date, prop );
     }
@@ -51,6 +50,7 @@ render() {
             handleDateSelections = { this.handleDateSelections.bind(this) }
             handleDropdownChange = { this.handleDropdownChange.bind(this)}
             handleRadioChange = { this.handleRadioChange.bind(this)}
+            handleSubmit = { this.handleSubmit.bind(this)}
             address1 ={address1}
             address2 ={address2}
             zip = { zip }
@@ -77,7 +77,6 @@ render() {
 
 
 function mapStateToProps(store) {
-    console.log("store", store)
     return{
         firstName: store.createPatientReducer.firstName,
         middleName: store.createPatientReducer.middleName,

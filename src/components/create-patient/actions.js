@@ -1,5 +1,8 @@
 import * as types from './constants';
 import moment from "moment";
+import configureStore from '../../store/configureStore';
+
+const store = configureStore()
 
 export  function onBlurHandler(event) {
     let value = {};
@@ -69,7 +72,7 @@ export function handleDropdownSelections(zone,prop, val){
 export function handleRadioSelections(prop, val){
     let value = {};
     value[prop] = val
-    value["type"] =  types.ONCHANGE_RADIO_HANDLER
+    value["type"] =  types.ONCHANGE_RADIO_HANDLER;
     return  function(dispatch, getState) {
         dispatch({
             type : types.ONCHANGE_RADIO_HANDLER,
@@ -78,13 +81,20 @@ export function handleRadioSelections(prop, val){
     }
 }
 
-export function submitHandler(event) {
-    let value = {};
-    value[event.target.id] = event.target.value;
-    value["type"] =  types.ADD_PATIENT
+
+export function submitHandler(event ) {
+    var reqObj =  store.getState().createPatientReducer
+
     return  function(dispatch, getState) {
         dispatch({
+            type : types.ONCHANGE_RADIO_HANDLER,
+            reqObj : reqObj
         })
     }
+}
+
+let  handleSubmit = (event) => {
+
+
 }
 

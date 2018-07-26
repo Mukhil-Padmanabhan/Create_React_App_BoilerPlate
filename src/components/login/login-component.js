@@ -4,7 +4,7 @@ import { connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as loginActions  from './actions';
 import * as types from './constants'
-import createPatientReducer from "../create-patient/reducer";
+import createPatient from "../create-patient/reducer";
 
 
 class Login extends React.Component {

@@ -24,9 +24,12 @@ export default class CreatePatientContainer extends React.Component {
         handleSelectChange(zone, prop, value)
     }
     handleRadioChange(prop, value) {
-        debugger;
         var { handleRadioChange } = this.props;
         handleRadioChange(prop, value)
+    }
+    handleSubmit(prop, value) {
+        var { handleSubmit } = this.props;
+        handleSubmit(prop, value)
     }
 
 
@@ -73,7 +76,7 @@ export default class CreatePatientContainer extends React.Component {
                     <div className="row marginTopNegativeClass">
                         <ButtonToolbar>
                             <Button bsStyle="danger" className="buttonTabText pull-right">Cancel</Button>
-                            <Button bsStyle="success" className="buttonTabText pull-right"  type="submit">Save</Button>
+                            <Button bsStyle="success" className="buttonTabText pull-right"  type="submit" onClick={handleSubmit.bind(this)}>Save</Button>
                             <Button bsStyle="info" className="buttonTabText pull-right">Site Settings</Button>
                             <Button bsStyle="primary" className="buttonTabText pull-right">Notes</Button>
                             <Button className="buttonTabText pull-right" >   Face Sheet</Button>
@@ -229,7 +232,7 @@ export default class CreatePatientContainer extends React.Component {
                                             <font color="red" className="ng-scope">*</font>
                                         </Col>
                                         <Col  lg={8} sm={8} md={8} xs={84}>
-                                            <FormControl type="text" placeholder=""  mandatory={true} onBlur={handleBlur} name="chartId"/>
+                                            <FormControl type="text" placeholder=""  mandatory="true" onBlur={handleBlur} name="chartId"/>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup >
