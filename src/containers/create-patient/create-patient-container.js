@@ -57,7 +57,7 @@ export default class CreatePatientContainer extends React.Component {
                 <div className="row">
                     <div className="col-md-9 col-sm-9 col-sx-9">
                         <h4>
-                            <span className="pageHeaders">Patient Profile</span>
+                         <font color="#035D84" className="ng-scope"> PATIENT PROFILE</font>
                             <span className="labelText " >Account / MRN #: <span className="labelValue">New</span></span>
 
                             <span className="labelText">
@@ -65,6 +65,7 @@ export default class CreatePatientContainer extends React.Component {
                                 <i className="glyphicons glyphicons-ok glyPhiconGreen displayIconsLinks ng-scope"  title="Active"></i>
                             </span>
                         </h4>
+
                     </div>
                 </div>
 
