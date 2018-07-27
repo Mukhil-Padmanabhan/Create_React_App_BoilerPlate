@@ -56,6 +56,16 @@ export default function createPatientReducer(state = initialState, action = {}) 
                 ...state,
                 referringProviderCheckStatus : action.referringProviderCheckStatus
             }
+        case types.ONCLICK_POPUPOPEN_HANDLER :
+            return {
+                ...state,
+                show :  JSON.parse(action.show)
+            }
+        case types.ONCLICK_POPUPCLOSE_HANDLER :
+            return {
+                ...state,
+                hide : action.hide
+            }
         default:
             return state;
     }

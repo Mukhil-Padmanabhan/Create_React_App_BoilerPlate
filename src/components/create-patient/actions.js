@@ -87,7 +87,7 @@ export function handleCheckboxSelect(prop, val){
     var checked
     value[prop] = val
         value["type"] =  types.ONCHANGE_CHECKBOX_HANDLER;
-        if(value && value.hasOwnProperty("referringProviderCheckStatus") && value.hasOwnProperty("referringProviderCheckStatus") != undefined){
+        if(value && value.hasOwnProperty("referringProviderCheckStatus") && value.hasOwnProperty("referringProviderCheckStatus") !== undefined){
             checked =  value.referringProviderCheckStatus
         }
         else{
@@ -100,6 +100,31 @@ export function handleCheckboxSelect(prop, val){
         })
     }
 }
+
+export function handlePopupShow(prop,val) {
+    let value = {};
+    value["show"] = prop
+    value["type"] =  types.ONCLICK_POPUPOPEN_HANDLER
+    return  function(dispatch, getState) {
+        dispatch({
+            type : types.ONCLICK_POPUPOPEN_HANDLER,
+            show : value && value.show ? value.show : getState().createPatientReducer.show ? getState().createPatientReducer.show : "",
+        })
+    }
+}
+
+export function handlePopupClose(prop,val) {
+    let value = {};
+    value["hide"] = prop
+    value["type"] =  types.ONCLICK_POPUPCLOSE_HANDLER
+    return  function(dispatch, getState) {
+        dispatch({
+            type : types.ONCLICK_POPUPCLOSE_HANDLER,
+            show : value && value.show ? value.show : getState().createPatientReducer.show ? getState().createPatientReducer.show : "",
+        })
+    }
+}
+
 export function submitHandler(event ) {
     var reqObj =  store.getState().createPatientReducer
     return  function(dispatch, getState) {

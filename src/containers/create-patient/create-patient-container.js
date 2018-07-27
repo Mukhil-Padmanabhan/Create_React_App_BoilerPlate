@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
-import {Form, Grid, Row , Col , Clearfix ,FieldGroup ,Checkbox , Radio, ControlLabel ,Button ,FormGroup,FormControl,ButtonToolbar,MenuItem,DropdownButton } from 'react-bootstrap'
+import {Form, Grid, Row , Col , Clearfix ,FieldGroup ,Checkbox ,
+    Radio, ControlLabel ,Button ,FormGroup,FormControl,
+    ButtonToolbar,MenuItem,DropdownButton,Modal,
+    OverlayTrigger,Popover, Tooltip} from 'react-bootstrap'
 import moment from 'moment';
 import DatePicker from 'react-date-picker';
 import initialState from '../../components/create-patient/initial.state';
+import RxntModal from '../../Modals/rxnt-modal'
 
 export default class CreatePatientContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             date: new Date(),
+            show: false
         }
     }
 
@@ -20,6 +25,7 @@ export default class CreatePatientContainer extends React.Component {
         let dates =  date ;
         handleDateSelections(dates, prop)
     }
+
     handleDropdownChange(prop, zone ,value) {
         var { handleSelectChange } = this.props;
         handleSelectChange(zone, prop, value)
@@ -35,6 +41,14 @@ export default class CreatePatientContainer extends React.Component {
     handleCheckbox(prop, value) {
         var { handleCheckboxChange } = this.props;
         handleCheckboxChange(prop, value)
+    }
+    handleShow(prop,value) {
+        var { handleShow } = this.props;
+        handleShow(prop,value)
+    }
+    handleClose(prop,value) {
+        var { handleClose } = this.props;
+        handleClose(prop,value)
     }
 
     render() {
@@ -55,8 +69,10 @@ export default class CreatePatientContainer extends React.Component {
 
         ]
         let that = this;
-        var {handleSubmit, handleBlur, handleDateChange, handleDropdownChange,dateOfBirth, dateReferred ,city, cityName ,state, stateName, handleRadioChange, handleCheckboxChange ,referringProviderCheckStatus} = this.props;
-
+        var {handleSubmit, handleBlur, handleDateChange, handleDropdownChange,dateOfBirth,
+            dateReferred ,city, cityName ,state, stateName, handleRadioChange,
+            handleCheckboxChange ,referringProviderCheckStatus,handleClose,handleShow,
+            show ,hide} = this.props;
         return (
             //<div> Hi </div>
             <Form className="tab-content" horizontal onSubmit={handleSubmit}>
@@ -94,92 +110,92 @@ export default class CreatePatientContainer extends React.Component {
                             <div id="mainView">
                                 <div>
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                             First Name
                                             <font color="red" className="ng-scope">*</font>
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={84}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl type="text" placeholder=""  required="required" onBlur={handleBlur} name="firstName"/>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                             Middle Name
                                             <font color="red" className="ng-scope">*</font>
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl type="text" placeholder="" required="required" onBlur={handleBlur} name="middleName"/>
                                         </Col>
                                     </FormGroup>
 
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                             Last Name
                                             <font color="red" className="ng-scope">*</font>
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl type="text" placeholder="" required="required" onBlur={handleBlur} name="lastName"/>
                                         </Col>
                                     </FormGroup>
 
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                             Place of Service
                                             <font color="red" className="ng-scope">*</font>
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl type="text" placeholder="" required="required" onBlur={handleBlur}  name="placeOfService"/>
                                         </Col>
                                     </FormGroup>
 
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} id="dob" lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} id="dob" lg={12} sm={12} md={12} xs={12} >
                                             Date Of Birth
                                             <font color="red" >*</font>
-                                        </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
                                             <DatePicker
                                                 onChange={this.handleDateChange.bind(this, "dateOfBirth")}
                                                 value={ dateOfBirth ? dateOfBirth: '' }
                                             />
                                         </Col>
+
+
                                     </FormGroup>
 
 
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel}  lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel}  lg={6} sm={6} md={6} xs={6} >
                                             Address 1
                                             <font color="red" className="ng-scope">*</font>
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl type="text" placeholder="" required="required" onBlur={handleBlur} name="address1"/>
                                         </Col>
                                     </FormGroup>
 
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                             Address 2
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl type="text" placeholder="" required="required" onBlur={handleBlur} name="address2"/>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                             Zip
                                             <font color="red" className="ng-scope">*</font>
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl type="text" placeholder="" required="required" onBlur={handleBlur} name="zip"/>
                                         </Col>
                                     </FormGroup>
 
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                             City
                                             <font color="red" className="ng-scope">*</font>
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <ButtonToolbar>
                                             <DropdownButton title={cityName ? cityName : "Select"} value={cityName} id="dropdown-custom-menu"  >
                                                     {
@@ -199,11 +215,11 @@ export default class CreatePatientContainer extends React.Component {
                                     </FormGroup>
 
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                             State
                                             <font color="red" className="ng-scope">*</font>
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <ButtonToolbar>
                                                 <DropdownButton title={stateName ? stateName : "Select"} value={stateName} id="dropdown-custom-State" >
                                                     {
@@ -230,52 +246,52 @@ export default class CreatePatientContainer extends React.Component {
                             <div id="mainView">
                                 <div>
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                             Chart #
                                             <font color="red" className="ng-scope">*</font>
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={84}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl type="text" placeholder=""  mandatory="true" onBlur={handleBlur} name="chartId"/>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                             External patient
 
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl type="text" placeholder="" disabled= {true} onBlur={handleBlur} name="externalPatientId"/>
                                         </Col>
                                     </FormGroup>
 
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                             SSN
                                             <font color="red" className="ng-scope">*</font>
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl type="text" placeholder="" required="required" onBlur={handleBlur} name="ssn"/>
                                         </Col>
                                     </FormGroup>
 
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                             Sex
                                             <font color="red" >*</font>
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8} >
-                                            <Radio name="radioGroup" inline
+                                        <Col  lg={6} sm={6} md={6} xs={6} >
+                                            <Radio name="radioGroup" className="pull-left" inline
                                                    onClick={handleRadioChange.bind(this,"sex","male")}
                                                 >
                                                 Male
                                             </Radio>{' '}
-                                            <Radio name="radioGroup" inline
+                                            <Radio name="radioGroup" className="pull-left" inline
                                                    onClick={handleRadioChange.bind(this,"sex","female")}
                                             >
 
                                                Female
                                             </Radio>{' '}
-                                            <Radio name="radioGroup" inline
+                                            <Radio name="radioGroup" className="pull-left" inline
                                                    onClick={handleRadioChange.bind(this,"sex","unspecified")}
                                             >
                                                Unspecified
@@ -284,45 +300,45 @@ export default class CreatePatientContainer extends React.Component {
                                     </FormGroup>
 
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                             Martial Status
                                         </Col>
-                                        <Col lg={8} sm={8} md={8} xs={8}>
+                                        <Col lg={6} sm={6} md={6} xs={6}>
 
                                         </Col>
                                     </FormGroup>
 
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel}  lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel}  lg={6} sm={6} md={6} xs={6} >
                                             Employment Status
                                             <font color="red" className="ng-scope">*</font>
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl type="text" placeholder="" required="required" onBlur={handleBlur}  name="employmentStatus"/>
                                         </Col>
                                     </FormGroup>
 
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                             Ethnicity
                                             <font color="red" className="ng-scope">*</font>
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl type="text" placeholder="" required="required" onBlur={handleBlur} name="ethnicity"/>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                            <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                             Preferred Language
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl type="text" placeholder="" required="required" onBlur={handleBlur} name="preferredLanguage"/>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup >
-                                        <Col  lg={12} sm={12} md={12} xs={12}>
-                                            <font color="#8f0404" >   <b>REFERRING PHYSICIAN INFORMATION *</b> </font>
-                                        </Col>
+                                        <div  >
+                                        <font color="#8f0404" > <b>REFERRING PHYSICIAN INFORMATION *</b> </font>
+                                        </div>
                                     </FormGroup>
                                     <FormGroup>
                                         <Col  componentClass={ControlLabel} lg={12} sm={12} md={12} xs={12} bsSize="large">
@@ -337,17 +353,21 @@ export default class CreatePatientContainer extends React.Component {
                                             <FormControl type="text" placeholder="" required="required" onBlur={handleBlur}  name="referringProvider"/>
                                         </Col>
                                         <Col  lg={2} sm={2} md={2} xs={2}>
-                                            <button type="button" className="btn btn-success btn-circle btn-lg"><i className="glyphicon glyphicon-plus"></i></button>
+                                            <button type="button" className="btn btn-success btn-circle btn-lg"  onClick={handleShow.bind(this,true)}><i className="glyphicon glyphicon-plus"></i></button>
+                                           <RxntModal
+                                               handleClose ={this.handleClose.bind(this)}
+                                               handleShow ={this.handleShow.bind(this)}
+                                                 show = {show}
+                                                 hide ={hide}
+                                           />
                                         </Col>
                                         <Col  lg={2} sm={2} md={2} xs={2}>
                                             <button type="button" className="btn btn-warning btn-circle btn-lg"><i className="glyphicon glyphicon-folder-open"></i></button>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={12} sm={12} md={12} xs={12} >
                                             Date Referred
-                                        </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
                                             <DatePicker
                                                 onChange={this.handleDateChange.bind(this, "dateReferred")}
                                                 value={ dateReferred ? dateReferred: '' }
@@ -362,55 +382,55 @@ export default class CreatePatientContainer extends React.Component {
                             <div id="mainView">
                                 <div>
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={46} >
                                             Preerred Phone
                                             <font color="red" >*</font>
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={84}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl type="text" placeholder=""  required="required"/>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                             Home Phone:
                                             <font color="red" >*</font>
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl type="text" placeholder="" required="required"/>
                                         </Col>
                                     </FormGroup>
 
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                             Work Phone
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl type="text" placeholder="" required="required"/>
                                         </Col>
                                     </FormGroup>
 
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={46} >
                                             Cell Phone
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl type="text" placeholder="" required="required"/>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                             Other Phone
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl type="text" placeholder="" required="required"/>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                             Email
                                             <font color="red" >*</font>
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl type="text" placeholder="" required="required"/>
                                         </Col>
                                     </FormGroup>
@@ -423,27 +443,27 @@ export default class CreatePatientContainer extends React.Component {
                                     <br/>
 
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel}  lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel}  lg={6} sm={6} md={6} xs={6} >
                                          Name
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl type="text" placeholder="" required="required"/>
                                         </Col>
                                     </FormGroup>
 
                                     <FormGroup >
-                                         <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                         <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                              Relationship
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl type="text" placeholder="" required="required"/>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                            Phone Number
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl placeholder="" type="number" required="required"/>
                                         </Col>
                                     </FormGroup>
@@ -460,27 +480,27 @@ export default class CreatePatientContainer extends React.Component {
                                     <br/>
 
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel}  lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel}  lg={6} sm={6} md={6} xs={6} >
                                             Name
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl type="text" placeholder="" required="required"/>
                                         </Col>
                                     </FormGroup>
 
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                             Relationship
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl type="text" placeholder="" required="required"/>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                             Phone Number
                                         </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <Col  lg={6} sm={6} md={6} xs={6}>
                                             <FormControl placeholder="" type="number" required="required"/>
                                         </Col>
                                     </FormGroup>
@@ -490,39 +510,37 @@ export default class CreatePatientContainer extends React.Component {
                                     <br/>
                                     <FormGroup>
                                         <Col  componentClass={ControlLabel} lg={12} sm={12} md={12} xs={12} bsSize="large">
-                                            <Checkbox className="" checked="false" name="call">Call</Checkbox>
+                                            <Checkbox className="" checked="false" name="call" className="pull-left" >Call</Checkbox>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup>
                                         <Col  componentClass={ControlLabel} lg={12} sm={12} md={12} xs={12} bsSize="large">
-                                            <Checkbox className="" checked="false" name="referringProviderCemailheckStatus">  Email </Checkbox>
+                                            <Checkbox className="" checked="false" name="referringProviderCemailheckStatus" className="pull-left"  >  Email </Checkbox>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup>
                                         <Col  componentClass={ControlLabel} lg={12} sm={12} md={12} xs={12} bsSize="large">
-                                            <Checkbox className="" checked='false' name="sms"> SMS</Checkbox>
+                                            <Checkbox className="" checked='false' name="sms"className="pull-left"> SMS</Checkbox>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup>
                                     <Col  componentClass={ControlLabel} lg={12} sm={12} md={12} xs={12} bsSize="large">
-                                        <Checkbox className="" checked='false'name="saturdayCommunication">  Allow Saturday Communication </Checkbox>
+                                        <Checkbox className="" checked='false'name="saturdayCommunication" className="pull-left">  Allow Saturday Communication </Checkbox>
                                     </Col>
                                 </FormGroup>
                                 <FormGroup>
                                     <Col  componentClass={ControlLabel} lg={12} sm={12} md={12} xs={12} bsSize="large">
-                                        <Checkbox className="" checked="false" name="sundayCommunication">  Allow Sunday Communication </Checkbox>
+                                        <Checkbox className="" checked="false" name="sundayCommunication" className="pull-left">  Allow Sunday Communication </Checkbox>
                                     </Col>
                                 </FormGroup>
                                 <FormGroup >
-                                    <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                    <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                         Patient Time Zone
                                     </Col>
-                                    <Col  lg={8} sm={8} md={8} xs={8}>
+                                    <Col  lg={6} sm={6} md={6} xs={6}>
                                         <FormControl type="text" placeholder="" required="required"/>
                                     </Col>
                                 </FormGroup>
-
-
                                 </div>
                             </div>
                         </Col>

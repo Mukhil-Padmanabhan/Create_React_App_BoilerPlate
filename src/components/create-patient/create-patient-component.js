@@ -14,6 +14,8 @@ class createPatient extends React.Component {
       this.handleRadioChange =  this.handleRadioChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
       this.handleCheckboxChange = this.handleCheckboxChange.bind(this)
+      this.handleShow = this.handleShow.bind(this)
+      this.handleClose = this.handleClose.bind(this)
 	}
     handleBlur = event => {
         var {onBlurHandler} = this.props.actions;
@@ -42,8 +44,17 @@ class createPatient extends React.Component {
         var { handleCheckboxSelect } = this.props.actions;
         handleCheckboxSelect(prop ,value);
     }
+    handleClose(prop,value) {
+        var { handlePopupClose } = this.props.actions;
+        handlePopupClose(prop ,value);
+    }
+    handleShow(prop,value) {
+        var { handlePopupShow } = this.props.actions;
+        handlePopupShow(prop ,value);
+    }
 
-render() {
+
+    render() {
     let props = this.props
     var {
         firstName,
@@ -53,7 +64,8 @@ render() {
         zip ,city, cityName ,state, stateName, chartId,externalPatientId
         ,martialStatus,employmentStatus ,ethnicity,preferredLanguage,
         referredByPhysician,referringProvider,
-        dateReferred , sex, referringProviderCheckStatus} = this.props;
+        dateReferred , sex, referringProviderCheckStatus, handleShow,handleClose, show , hide} = this.props;
+
     return (
         <CreatePatientContainer
             handleBlur={this.handleBlur}
@@ -66,6 +78,10 @@ render() {
             handleSubmit = { this.handleSubmit.bind(this)}
             handleCheckboxChange ={this.handleCheckboxChange.bind(this)}
             referringProviderCheckStatus = {props.referringProviderCheckStatus}
+            handleClose ={this.handleClose.bind(this)}
+            handleShow ={this.handleShow.bind(this)}
+            show ={show}
+            hide ={hide}
             address1 ={address1}
             address2 ={address2}
             zip = { zip }
@@ -112,7 +128,10 @@ function mapStateToProps(store) {
         referredByPhysician: store.createPatientReducer.referredByPhysician,
         referringProvider: store.createPatientReducer.referringProvider,
         dateReferred: store.createPatientReducer.dateReferred,
-        referringProviderCheckStatus : store.createPatientReducer.referringProviderCheckStatus
+        referringProviderCheckStatus : store.createPatientReducer.referringProviderCheckStatus,
+        show : store.createPatientReducer.show,
+        hide :store.createPatientReducer.hide
+
     }
 }
 
