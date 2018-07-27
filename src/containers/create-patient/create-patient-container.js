@@ -89,7 +89,7 @@ export default class CreatePatientContainer extends React.Component {
                 </div>
                 <Grid>
                     <Row className="show-grid tab-content">
-                        <Col lg={4} sm={4} md={4} xs={4} >
+                        <Col lg={3} sm={3} md={3} xs={3} >
                             <br />
                             <div id="mainView">
                                 <div>
@@ -225,7 +225,7 @@ export default class CreatePatientContainer extends React.Component {
                                 </div>
                             </div>
                         </Col>
-                        <Col  lg={4} sm={4} md={4} xs={4} >
+                        <Col  lg={3} sm={3} md={3} xs={3} >
                             <br />
                             <div id="mainView">
                                 <div>
@@ -320,56 +320,51 @@ export default class CreatePatientContainer extends React.Component {
                                         </Col>
                                     </FormGroup>
                                     <FormGroup >
+                                        <Col  lg={12} sm={12} md={12} xs={12}>
+                                            <font color="#8f0404" >   <b>REFERRING PHYSICIAN INFORMATION *</b> </font>
+                                        </Col>
+                                    </FormGroup>
+                                    <FormGroup>
+                                        <Col  componentClass={ControlLabel} lg={12} sm={12} md={12} xs={12} bsSize="large">
+                                            <Checkbox className="" checked={referringProviderCheckStatus ?  "true" :"false"  } onChange={ e => this.handleCheckbox("referringProviderCheckStatus",e.target.checked)} name="referringProviderCheckStatus">  Patient was referred by Physician </Checkbox>
+                                        </Col>
+                                    </FormGroup>
+                                    <FormGroup >
                                         <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
-
+                                            Referring Provider
+                                        </Col>
+                                        <Col  lg={4} sm={4} md={4} xs={4}>
+                                            <FormControl type="text" placeholder="" required="required" onBlur={handleBlur}  name="referringProvider"/>
+                                        </Col>
+                                        <Col  lg={2} sm={2} md={2} xs={2}>
+                                            <button type="button" className="btn btn-success btn-circle btn-lg"><i className="glyphicon glyphicon-plus"></i></button>
+                                        </Col>
+                                        <Col  lg={2} sm={2} md={2} xs={2}>
+                                            <button type="button" className="btn btn-warning btn-circle btn-lg"><i className="glyphicon glyphicon-folder-open"></i></button>
+                                        </Col>
+                                    </FormGroup>
+                                    <FormGroup >
+                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                            Date Referred
                                         </Col>
                                         <Col  lg={8} sm={8} md={8} xs={8}>
-                                            <b>REFERRING PHYSICIAN INFORMATION *</b>
+                                            <DatePicker
+                                                onChange={this.handleDateChange.bind(this, "dateReferred")}
+                                                value={ dateReferred ? dateReferred: '' }
+                                            />
                                         </Col>
-                                        <FormGroup>
-                                            <Col smOffset={2} sm={10}>
-                                                <Checkbox checked={referringProviderCheckStatus ?  "true" :"false"  } onChange={ e => this.handleCheckbox("referringProviderCheckStatus",e.target.checked)} name="referringProviderCheckStatus">Patient was referred by Physician</Checkbox>
-                                            </Col>
-                                        </FormGroup>
-                                        <FormGroup >
-                                            <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
-                                               Referring Provider
-                                            </Col>
-                                            <Col  lg={4} sm={4} md={4} xs={4}>
-                                                <FormControl type="text" placeholder="" required="required" onBlur={handleBlur}  name="referringProvider"/>
-                                            </Col>
-                                            <Col  lg={2} sm={2} md={2} xs={2}>
-                                                <button type="button" className="btn btn-success btn-circle btn-lg"><i className="glyphicon glyphicon-plus"></i></button>
-                                            </Col>
-                                            <Col  lg={2} sm={2} md={2} xs={2}>
-                                                <button type="button" className="btn btn-warning btn-circle btn-lg"><i className="glyphicon glyphicon-folder-open"></i></button>
-                                            </Col>
-                                        </FormGroup>
-                                        <FormGroup >
-                                            <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
-                                                Date Referred
-                                            </Col>
-                                            <Col  lg={8} sm={8} md={8} xs={8}>
-                                                <DatePicker
-                                                    onChange={this.handleDateChange.bind(this, "dateReferred")}
-                                                    value={ dateReferred ? dateReferred: '' }
-                                                />
-                                            </Col>
-                                        </FormGroup>
                                     </FormGroup>
                                 </div>
                             </div>
                         </Col>
-                        <Clearfix visibleSmBlock>
-
-                        </Clearfix>
-                        <Col  lg={4} sm={4} md={4} xs={4} >
+                        <Col  lg={3} sm={3} md={3} xs={3} >
                             <br />
                             <div id="mainView">
                                 <div>
                                     <FormGroup >
                                         <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
-                                            First Name
+                                            Preerred Phone
+                                            <font color="red" >*</font>
                                         </Col>
                                         <Col  lg={8} sm={8} md={8} xs={84}>
                                             <FormControl type="text" placeholder=""  required="required"/>
@@ -377,7 +372,8 @@ export default class CreatePatientContainer extends React.Component {
                                     </FormGroup>
                                     <FormGroup >
                                         <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
-                                           Middle Name
+                                            Home Phone:
+                                            <font color="red" >*</font>
                                         </Col>
                                         <Col  lg={8} sm={8} md={8} xs={8}>
                                             <FormControl type="text" placeholder="" required="required"/>
@@ -386,7 +382,7 @@ export default class CreatePatientContainer extends React.Component {
 
                                     <FormGroup >
                                         <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
-                                            Last Name
+                                            Work Phone
                                         </Col>
                                         <Col  lg={8} sm={8} md={8} xs={8}>
                                             <FormControl type="text" placeholder="" required="required"/>
@@ -395,29 +391,40 @@ export default class CreatePatientContainer extends React.Component {
 
                                     <FormGroup >
                                         <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
-                                            Place of Service
+                                            Cell Phone
+                                        </Col>
+                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                            <FormControl type="text" placeholder="" required="required"/>
+                                        </Col>
+                                    </FormGroup>
+                                    <FormGroup >
+                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                            Other Phone
+                                        </Col>
+                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                            <FormControl type="text" placeholder="" required="required"/>
+                                        </Col>
+                                    </FormGroup>
+                                    <FormGroup >
+                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                            Email
+                                            <font color="red" >*</font>
                                         </Col>
                                         <Col  lg={8} sm={8} md={8} xs={8}>
                                             <FormControl type="text" placeholder="" required="required"/>
                                         </Col>
                                     </FormGroup>
 
-                                    <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
-                                            Date Of Birth
-                                        </Col>
-                                        <Col  lg={8} sm={8} md={8} xs={8}>
-                                            <DatePicker
+                                    <div>
 
-                                                value={this.state.date}
-                                            />
-                                        </Col>
-                                    </FormGroup>
+                                        <font color="#c29306" >  <b> EMERGENCY CONTACT - PRIMARY </b></font>
 
+                                    </div>
+                                    <br/>
 
                                     <FormGroup >
                                         <Col componentClass={ControlLabel}  lg={4} sm={4} md={4} xs={4} >
-                                          Address 1
+                                         Name
                                         </Col>
                                         <Col  lg={8} sm={8} md={8} xs={8}>
                                             <FormControl type="text" placeholder="" required="required"/>
@@ -426,7 +433,7 @@ export default class CreatePatientContainer extends React.Component {
 
                                     <FormGroup >
                                          <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
-                                          Address 2
+                                             Relationship
                                         </Col>
                                         <Col  lg={8} sm={8} md={8} xs={8}>
                                             <FormControl type="text" placeholder="" required="required"/>
@@ -434,7 +441,27 @@ export default class CreatePatientContainer extends React.Component {
                                     </FormGroup>
                                     <FormGroup >
                                         <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
-                                            Zip
+                                           Phone Number
+                                        </Col>
+                                        <Col  lg={8} sm={8} md={8} xs={8}>
+                                            <FormControl placeholder="" type="number" required="required"/>
+                                        </Col>
+                                    </FormGroup>
+                                </div>
+                            </div>
+                        </Col>
+                        <Col  lg={3} sm={3} md={3} xs={3} >
+                            <br />
+                            <div id="mainView">
+                                <div>
+                                    <div>
+                                        <font color="#04896a" > <b> EMERGENCY CONTACT-SECONDARY </b> </font>
+                                    </div>
+                                    <br/>
+
+                                    <FormGroup >
+                                        <Col componentClass={ControlLabel}  lg={4} sm={4} md={4} xs={4} >
+                                            Name
                                         </Col>
                                         <Col  lg={8} sm={8} md={8} xs={8}>
                                             <FormControl type="text" placeholder="" required="required"/>
@@ -443,40 +470,57 @@ export default class CreatePatientContainer extends React.Component {
 
                                     <FormGroup >
                                         <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
-                                            City
+                                            Relationship
                                         </Col>
                                         <Col  lg={8} sm={8} md={8} xs={8}>
-                                           <ButtonToolbar>
-                                               <DropdownButton title="Select" id="dropdown-custom-dummy">
-                                                   <MenuItem eventKey="1">Action</MenuItem>
-                                                   <MenuItem eventKey="2">Another action</MenuItem>
-                                                   <MenuItem eventKey="3" active>
-                                                       Active Item
-                                                   </MenuItem>
-                                                   <MenuItem divider />
-                                                   <MenuItem eventKey="4">Separated link</MenuItem>
-                                               </DropdownButton>
-                                           </ButtonToolbar>
+                                            <FormControl type="text" placeholder="" required="required"/>
                                         </Col>
                                     </FormGroup>
-
                                     <FormGroup >
                                         <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
-                                            State
+                                            Phone Number
                                         </Col>
                                         <Col  lg={8} sm={8} md={8} xs={8}>
-                                            <ButtonToolbar>
-                                                <DropdownButton title="Select" id="dropdown-custom-dummy">
-                                                    <MenuItem eventKey="1">State 1</MenuItem>
-                                                    <MenuItem eventKey="2">State 2</MenuItem>
-                                                    <MenuItem eventKey="3" active>State 3</MenuItem>
-                                                    <MenuItem divider />
-                                                    <MenuItem eventKey="4">State 4</MenuItem>
-                                                </DropdownButton>
-                                            </ButtonToolbar>
+                                            <FormControl placeholder="" type="number" required="required"/>
                                         </Col>
-
                                     </FormGroup>
+                                    <div>
+                                        <font color="#04896a" > <b> COMMUNICATION PREFERENCES </b> </font>
+                                    </div>
+                                    <br/>
+                                    <FormGroup>
+                                        <Col  componentClass={ControlLabel} lg={12} sm={12} md={12} xs={12} bsSize="large">
+                                            <Checkbox className="" checked="false" name="call">Call</Checkbox>
+                                        </Col>
+                                    </FormGroup>
+                                    <FormGroup>
+                                        <Col  componentClass={ControlLabel} lg={12} sm={12} md={12} xs={12} bsSize="large">
+                                            <Checkbox className="" checked="false" name="referringProviderCemailheckStatus">  Email </Checkbox>
+                                        </Col>
+                                    </FormGroup>
+                                    <FormGroup>
+                                        <Col  componentClass={ControlLabel} lg={12} sm={12} md={12} xs={12} bsSize="large">
+                                            <Checkbox className="" checked='false' name="sms"> SMS</Checkbox>
+                                        </Col>
+                                    </FormGroup>
+                                    <FormGroup>
+                                    <Col  componentClass={ControlLabel} lg={12} sm={12} md={12} xs={12} bsSize="large">
+                                        <Checkbox className="" checked='false'name="saturdayCommunication">  Allow Saturday Communication </Checkbox>
+                                    </Col>
+                                </FormGroup>
+                                <FormGroup>
+                                    <Col  componentClass={ControlLabel} lg={12} sm={12} md={12} xs={12} bsSize="large">
+                                        <Checkbox className="" checked="false" name="sundayCommunication">  Allow Sunday Communication </Checkbox>
+                                    </Col>
+                                </FormGroup>
+                                <FormGroup >
+                                    <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        Patient Time Zone
+                                    </Col>
+                                    <Col  lg={8} sm={8} md={8} xs={8}>
+                                        <FormControl type="text" placeholder="" required="required"/>
+                                    </Col>
+                                </FormGroup>
 
 
                                 </div>
