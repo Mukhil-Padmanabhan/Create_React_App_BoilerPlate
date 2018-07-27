@@ -16,5 +16,5 @@ export default {
     referredByPhysician: "",
     referringProvider: "",
     dateReferred: "",
-
+    referringProviderCheckStatus : true
 }

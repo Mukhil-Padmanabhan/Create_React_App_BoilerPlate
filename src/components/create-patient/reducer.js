@@ -51,6 +51,11 @@ export default function createPatientReducer(state = initialState, action = {}) 
                 ...state,
                 responseArr : action.responseArr
             }
+        case types.ONCHANGE_CHECKBOX_HANDLER :
+            return {
+                ...state,
+                referringProviderCheckStatus : action.referringProviderCheckStatus
+            }
         default:
             return state;
     }

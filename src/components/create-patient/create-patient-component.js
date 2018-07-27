@@ -13,6 +13,7 @@ class createPatient extends React.Component {
       this.handleDropdownChange = this.handleDropdownChange.bind(this);
       this.handleRadioChange =  this.handleRadioChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleCheckboxChange = this.handleCheckboxChange.bind(this)
 	}
     handleBlur = event => {
         var {onBlurHandler} = this.props.actions;
@@ -37,13 +38,25 @@ class createPatient extends React.Component {
         handleRadioSelections(prop ,value);
     }
 
+     handleCheckboxChange(prop, value){
+        var { handleCheckboxSelect } = this.props.actions;
+        handleCheckboxSelect(prop ,value);
+    }
+
 render() {
     let props = this.props
-    var { firstName, middleName ,placeOfService  ,placeOfService ,placeOfService ,address1 ,address2 ,zip ,city, cityName ,state, stateName, chartId,externalPatientId ,martialStatus,employmentStatus ,ethnicity,preferredLanguage,referredByPhysician,referringProvider,dateReferred , sex} = this.props;
+    var {
+        firstName,
+        middleName ,
+        placeOfService  ,placeOfService
+        ,placeOfService ,address1 ,address2 ,
+        zip ,city, cityName ,state, stateName, chartId,externalPatientId
+        ,martialStatus,employmentStatus ,ethnicity,preferredLanguage,
+        referredByPhysician,referringProvider,
+        dateReferred , sex, referringProviderCheckStatus} = this.props;
     return (
         <CreatePatientContainer
             handleBlur={this.handleBlur}
-            handleSubmit={this.handleSubmit}
             firstName = { firstName }
             middleName = { middleName }
             placeOfService = { placeOfService }
@@ -51,6 +64,8 @@ render() {
             handleDropdownChange = { this.handleDropdownChange.bind(this)}
             handleRadioChange = { this.handleRadioChange.bind(this)}
             handleSubmit = { this.handleSubmit.bind(this)}
+            handleCheckboxChange ={this.handleCheckboxChange.bind(this)}
+            referringProviderCheckStatus = {props.referringProviderCheckStatus}
             address1 ={address1}
             address2 ={address2}
             zip = { zip }
@@ -97,6 +112,7 @@ function mapStateToProps(store) {
         referredByPhysician: store.createPatientReducer.referredByPhysician,
         referringProvider: store.createPatientReducer.referringProvider,
         dateReferred: store.createPatientReducer.dateReferred,
+        referringProviderCheckStatus : store.createPatientReducer.referringProviderCheckStatus
     }
 }
 

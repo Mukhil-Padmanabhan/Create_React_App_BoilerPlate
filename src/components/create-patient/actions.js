@@ -82,19 +82,31 @@ export function handleRadioSelections(prop, val){
 }
 
 
+export function handleCheckboxSelect(prop, val){
+    let value = {};
+    var checked
+    value[prop] = val
+        value["type"] =  types.ONCHANGE_CHECKBOX_HANDLER;
+        if(value && value.hasOwnProperty("referringProviderCheckStatus") && value.hasOwnProperty("referringProviderCheckStatus") != undefined){
+            checked =  value.referringProviderCheckStatus
+        }
+        else{
+            checked =   store.getState().createPatientReducer.referringProviderCheckStatus
+        }
+    return  function(dispatch, getState) {
+        dispatch({
+            type : types.ONCHANGE_CHECKBOX_HANDLER,
+            referringProviderCheckStatus : checked
+        })
+    }
+}
 export function submitHandler(event ) {
     var reqObj =  store.getState().createPatientReducer
-
     return  function(dispatch, getState) {
         dispatch({
             type : types.ONCHANGE_RADIO_HANDLER,
             reqObj : reqObj
         })
     }
-}
-
-let  handleSubmit = (event) => {
-
-
 }
 

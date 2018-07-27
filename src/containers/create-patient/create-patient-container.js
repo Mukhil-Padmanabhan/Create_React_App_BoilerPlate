@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Form, Grid, Row , Col , Clearfix ,FieldGroup ,Checkbox , Radio, ControlLabel ,Button ,FormGroup,FormControl,ButtonToolbar,MenuItem,DropdownButton } from 'react-bootstrap'
 import moment from 'moment';
 import DatePicker from 'react-date-picker';
+import initialState from '../../components/create-patient/initial.state';
 
 export default class CreatePatientContainer extends React.Component {
     constructor(props) {
@@ -31,8 +32,10 @@ export default class CreatePatientContainer extends React.Component {
         var { handleSubmit } = this.props;
         handleSubmit(prop, value)
     }
-
-
+    handleCheckbox(prop, value) {
+        var { handleCheckboxChange } = this.props;
+        handleCheckboxChange(prop, value)
+    }
 
     render() {
         const cityList = [{id :1, name :"New York"},
@@ -52,7 +55,7 @@ export default class CreatePatientContainer extends React.Component {
 
         ]
         let that = this;
-        var {handleSubmit, handleBlur, handleDateChange, handleDropdownChange,dateOfBirth, dateReferred ,city, cityName ,state, stateName, handleRadioChange} = this.props;
+        var {handleSubmit, handleBlur, handleDateChange, handleDropdownChange,dateOfBirth, dateReferred ,city, cityName ,state, stateName, handleRadioChange, handleCheckboxChange ,referringProviderCheckStatus} = this.props;
 
         return (
             //<div> Hi </div>
@@ -325,7 +328,7 @@ export default class CreatePatientContainer extends React.Component {
                                         </Col>
                                         <FormGroup>
                                             <Col smOffset={2} sm={10}>
-                                                <Checkbox checked>Patient was referred by Physician</Checkbox>
+                                                <Checkbox checked={referringProviderCheckStatus ?  "true" :"false"  } onChange={ e => this.handleCheckbox("referringProviderCheckStatus",e.target.checked)} name="referringProviderCheckStatus">Patient was referred by Physician</Checkbox>
                                             </Col>
                                         </FormGroup>
                                         <FormGroup >
@@ -444,7 +447,7 @@ export default class CreatePatientContainer extends React.Component {
                                         </Col>
                                         <Col  lg={8} sm={8} md={8} xs={8}>
                                            <ButtonToolbar>
-                                               <DropdownButton title="Select">
+                                               <DropdownButton title="Select" id="dropdown-custom-dummy">
                                                    <MenuItem eventKey="1">Action</MenuItem>
                                                    <MenuItem eventKey="2">Another action</MenuItem>
                                                    <MenuItem eventKey="3" active>
@@ -463,7 +466,7 @@ export default class CreatePatientContainer extends React.Component {
                                         </Col>
                                         <Col  lg={8} sm={8} md={8} xs={8}>
                                             <ButtonToolbar>
-                                                <DropdownButton title="Select">
+                                                <DropdownButton title="Select" id="dropdown-custom-dummy">
                                                     <MenuItem eventKey="1">State 1</MenuItem>
                                                     <MenuItem eventKey="2">State 2</MenuItem>
                                                     <MenuItem eventKey="3" active>State 3</MenuItem>
