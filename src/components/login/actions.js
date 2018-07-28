@@ -14,36 +14,24 @@ export  function onChangeHandler(event) {
     }
   }
 
-  export  function onLogin() {
-            let EncryptedPassword = btoa("Apex@007")
-    //let value = {UserName: "Mukhil", Password: "Mukhil", EncryptedPassword : atob("Mukhil"), AuthenticateCorporateUser : false};
-      let value = {UserName: "internaldev", Password: "Apex@007", AuthenticateCorporateUser : true} 
-   let myHeaders = new Headers();
-        myHeaders.set('RequestInfo','TestUser#TestPass#0##');
-        myHeaders.set('Content-Type', 'application/json');
-        var data = new FormData();
-data.append( "json", JSON.stringify( value ) );
-
+  export  function onLogin(requestModel) {
       let options =  {
           method: 'POST',
-         // mode: 'cors',
           headers: {
-            //'Accept': 'application/json, text/plain, */*',
-            'RequestInfo': 'TestUser#TestPass#0##',
-           'Content-Type' : 'application/x-www-form-urlencoded'
+            'Accept': 'application/json, text/plain, */*',
+           'Content-Type' : 'application/json'
           },
-          body : JSON.stringify(value)
+          body : JSON.stringify(requestModel)
         }
   return  async function(dispatch, getState) {
-         return  await fetch(`http://localhost/PMV2API/billing/authentication/AuthenticateUser/`, options
-       )
-        .then(function(response) {
+         return  await fetch(`http://localhost:5000/login`, options)
+        .then(response => {
           console.log('response', response)
         })
         dispatch({
           type : types.ONCHANGE_HANDLER,
-          email: value && value.email ? value.email : getState().loginReducer.email ? getState().loginReducer.email : "",
-          password: value && value.password ? value.password : getState().loginReducer.password ? getState().loginReducer.password : ""
+          email: requestModel && requestModel.email ? requestModel.email : getState().loginReducer.email ? getState().loginReducer.email : "",
+          password: requestModel && requestModel.password ? requestModel.password : getState().loginReducer.password ? getState().loginReducer.password : ""
         })
     }
   }

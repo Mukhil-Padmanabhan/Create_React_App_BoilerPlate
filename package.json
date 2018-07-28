@@ -2,8 +2,10 @@
   "name": "react-boilerplate",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://Mukhil-Padmanabhan.github.io/Create_React_App_BoilerPlate",
+  "homepage": "http://Mukhil-Padmanabhan.github.io/",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
     "create-react-class": "^15.6.3",
     "es6-promise": "^4.2.4",
     "express": "^4.16.3",
@@ -32,7 +34,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && node server",
     "deploy": "gh-pages -d build",
     "flow": "flow"
   },
