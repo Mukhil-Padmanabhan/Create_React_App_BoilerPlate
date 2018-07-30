@@ -95,19 +95,12 @@ export default class CreatePatientContainer extends React.Component {
                                         <Col componentClass={ControlLabel} lg={2} sm={2} md={2} xs={2} >
                                             Account /MRN :  <font color="#035D84" >New</font>
                                         </Col>
-                                        <Col componentClass={ControlLabel} lg={2} sm={2} md={2} xs={2} >
-                                            Status
-                                        </Col>
                                     </FormGroup>
                                 </div>
                             </div>
                         </Col>
-
                     </Row>
-
                 </Grid>
-
-
                 <Grid>
                     <Row className="show-grid tab-content">
                         <Col lg={3} sm={3} md={3} xs={3} >
@@ -307,15 +300,14 @@ export default class CreatePatientContainer extends React.Component {
                                         </Col>
                                     </FormGroup>
 
-                                    <FormGroup >
+                                 {/*   <FormGroup >
                                         <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
                                             Martial Status
                                         </Col>
                                         <Col lg={6} sm={6} md={6} xs={6}>
 
                                         </Col>
-                                    </FormGroup>
-
+                                    </FormGroup>*/}
                                     <FormGroup >
                                         <Col componentClass={ControlLabel}  lg={6} sm={6} md={6} xs={6} >
                                             Employment Status
@@ -343,7 +335,7 @@ export default class CreatePatientContainer extends React.Component {
                                             <FormControl type="text" placeholder=""  onBlur={handleBlur} name="preferredLanguage"/>
                                         </Col>
                                     </FormGroup>
-                                    <FormGroup >
+                                  {/*  <FormGroup >
                                         <div  >
                                         <font color="#8f0404" > <b>REFERRING PHYSICIAN INFORMATION *</b> </font>
                                         </div>
@@ -352,12 +344,12 @@ export default class CreatePatientContainer extends React.Component {
                                         <Col  componentClass={ControlLabel} lg={12} sm={12} md={12} xs={12} bsSize="large">
                                             <Checkbox className="" checked={referringProviderCheckStatus ?  "true" :"false"  } onChange={ e => this.handleCheckbox("referringProviderCheckStatus",e.target.checked)} name="referringProviderCheckStatus">  Patient was referred by Physician </Checkbox>
                                         </Col>
-                                    </FormGroup>
+                                    </FormGroup>*/}
                                     <FormGroup >
-                                        <Col componentClass={ControlLabel} lg={4} sm={4} md={4} xs={4} >
+                                        <Col componentClass={ControlLabel} lg={3} sm={3} md={3} xs={3} >
                                             Referring Provider
                                         </Col>
-                                        <Col  lg={4} sm={4} md={4} xs={4}>
+                                        <Col  lg={5} sm={5} md={5} xs={5}>
                                             <FormControl type="text" placeholder=""  onBlur={handleBlur}  name="referringProvider"/>
                                         </Col>
                                         <Col  lg={2} sm={2} md={2} xs={2}>
