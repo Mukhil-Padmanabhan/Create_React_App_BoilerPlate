@@ -30,6 +30,19 @@ export  function onBlurHandler(event) {
             referredByPhysician:  value && value.referredByPhysician ? value.referredByPhysician : getState().createPatientReducer.referredByPhysician ? getState().createPatientReducer.referredByPhysician : "",
             referringProvider: value && value.referringProvider ? value.referringProvider : getState().createPatientReducer.referringProvider ? getState().createPatientReducer.referringProvider : "",
             dateReferred: value && value.dateReferred ? value.dateReferred : getState().createPatientReducer.dateReferred ? getState().createPatientReducer.dateReferred : "",
+            prefferedPhone :  value && value.prefferedPhone ? value.prefferedPhone : getState().createPatientReducer.prefferedPhone ? getState().createPatientReducer.prefferedPhone : "",
+            homePhone :  value && value.homePhone ? value.homePhone : getState().createPatientReducer.homePhone ? getState().createPatientReducer.homePhone : "",
+            workPhone :  value && value.workPhone ? value.workPhone : getState().createPatientReducer.workPhone ? getState().createPatientReducer.workPhone : "",
+            cellPhone :  value && value.cellPhone ? value.cellPhone : getState().createPatientReducer.cellPhone ? getState().createPatientReducer.cellPhone : "",
+            otherPhone :  value && value.otherPhone ? value.otherPhone : getState().createPatientReducer.otherPhone ? getState().createPatientReducer.otherPhone : "",
+            email :  value && value.email ? value.email : getState().createPatientReducer.email ? getState().createPatientReducer.email : "",
+            emergencyName :  value && value.emergencyName ? value.emergencyName : getState().createPatientReducer.emergencyName ? getState().createPatientReducer.emergencyName : "",
+            emergencyRelationship :  value && value.emergencyRelationship ? value.emergencyRelationship : getState().createPatientReducer.emergencyRelationship ? getState().createPatientReducer.emergencyRelationship : "",
+            emergencyPhoneNumber :  value && value.emergencyPhoneNumber ? value.emergencyPhoneNumber : getState().createPatientReducer.emergencyPhoneNumber ? getState().createPatientReducer.emergencyPhoneNumber : "",
+            emergencyName2 :  value && value.emergencyName2 ? value.emergencyName2 : getState().createPatientReducer.emergencyName2 ? getState().createPatientReducer.emergencyName2 : "",
+            emergencyRelationship2 :  value && value.emergencyRelationship2 ? value.emergencyRelationship2 : getState().createPatientReducer.emergencyRelationship2 ? getState().createPatientReducer.emergencyRelationship2 : "",
+            patientTimeZone :  value && value.patientTimeZone ? value.patientTimeZone : getState().createPatientReducer.patientTimeZone ? getState().createPatientReducer.patientTimeZone : "",
+
         })
     }
 }
@@ -96,7 +109,12 @@ export function handleCheckboxSelect(prop, val){
     return  function(dispatch, getState) {
         dispatch({
             type : types.ONCHANGE_CHECKBOX_HANDLER,
-            referringProviderCheckStatus : checked
+            referringProviderCheckStatus : checked,
+            communicationPreferenceCall :  value && value.communicationPreferenceCall ? value.communicationPreferenceCall : getState().createPatientReducer.communicationPreferenceCall ? getState().createPatientReducer.communicationPreferenceCall : "",
+            communicationPreferenceEmail :  value && value.communicationPreferenceEmail ? value.communicationPreferenceEmail : getState().createPatientReducer.communicationPreferenceEmail ? getState().createPatientReducer.communicationPreferenceEmail : "",
+            communicationPreferenceSms :  value && value.communicationPreferenceSms ? value.communicationPreferenceSms : getState().createPatientReducer.communicationPreferenceSms ? getState().createPatientReducer.communicationPreferenceSms : "",
+            allowSaturdayCommunication :  value && value.allowSaturdayCommunication ? value.allowSaturdayCommunication : getState().createPatientReducer.allowSaturdayCommunication ? getState().createPatientReducer.allowSaturdayCommunication : "",
+            allowSundayCommunication :  value && value.allowSundayCommunication ? value.allowSundayCommunication : getState().createPatientReducer.allowSundayCommunication ? getState().createPatientReducer.allowSundayCommunication : "",
         })
     }
 }
