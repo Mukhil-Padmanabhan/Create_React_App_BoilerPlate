@@ -19,3 +19,22 @@ return async function(dispatch, getState) {
       })
   }
 }
+
+export function getPatients() {
+    let options =  {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type' : 'application/json'
+        },
+    }
+    return async function(dispatch, getState) {
+        return await fetch(`http://localhost:5000/getPatientList`, options)
+            .then(response => {
+                dispatch({
+                    type : types.ON_GETTING_PATIENTSLIST,
+                    patientList: response
+                })
+            })
+    }
+}

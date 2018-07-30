@@ -22,9 +22,19 @@ app.post('/login', function(req, res)  {
     res.send(); 
 });
 
+app.post('/createPatient', function(req, res)  {
+    mongoUtilities.insertData("TestDB", "patients", req.body, function(err, result) {
+        if (err) throw err;
+        console.log('result', result)
+        return result;
+    });
+    res.send();
+});
+
+
 
 app.get('/getPatientList', function() {
-    mongoUtilities.getData("TestDB", "Patients", function(err, result) {
+    mongoUtilities.getData("TestDB", "patients", function(err, result) {
         if (err) throw err;
         return result;
     });

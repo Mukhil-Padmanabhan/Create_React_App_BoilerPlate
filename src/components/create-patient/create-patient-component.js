@@ -19,12 +19,17 @@ class createPatient extends React.Component {
 	}
     handleBlur = event => {
         var {onBlurHandler} = this.props.actions;
-        onBlurHandler(event)
+
     }
 
     handleSubmit (event){
         var {submitHandler} = this.props.actions;
-        submitHandler(event)
+        var {routerProps} = this.props;
+        var requestObject ={};
+        var length =  event.target.length;
+        for(var i = 0; i < length - 1; i++) requestObject[event.target[i].name] = event.target[i].value;
+        submitHandler(requestObject)
+        routerProps.history.push('/patientList');
     }
     handleDateSelections(date, prop) {
 
@@ -64,22 +69,25 @@ class createPatient extends React.Component {
         zip ,city, cityName ,state, stateName, chartId,externalPatientId
         ,martialStatus,employmentStatus ,ethnicity,preferredLanguage,
         referredByPhysician,referringProvider,
-        dateReferred , sex, referringProviderCheckStatus, handleShow,handleClose, show , hide} = this.props;
+        dateReferred , sex, referringProviderCheckStatus,
+        handleShow,handleClose, show , hide,prefferedPhone,
+        homePhone,workPhone,cellPhone,otherPhone,
+        communicationPreferenceCall,communicationPreferenceEmail,communicationPreferenceSms,
+        allowSaturdayCommunication,allowSundayCommunication} = this.props;
 
     return (
         <CreatePatientContainer
             handleBlur={this.handleBlur}
-            firstName = { firstName }
-            middleName = { middleName }
-            placeOfService = { placeOfService }
             handleDateSelections = { this.handleDateSelections.bind(this) }
             handleDropdownChange = { this.handleDropdownChange.bind(this)}
             handleRadioChange = { this.handleRadioChange.bind(this)}
             handleSubmit = { this.handleSubmit.bind(this)}
             handleCheckboxChange ={this.handleCheckboxChange.bind(this)}
-            referringProviderCheckStatus = {props.referringProviderCheckStatus}
             handleClose ={this.handleClose.bind(this)}
             handleShow ={this.handleShow.bind(this)}
+            firstName = { firstName }
+            middleName = { middleName }
+            placeOfService = { placeOfService }
             show ={show}
             hide ={hide}
             address1 ={address1}
@@ -101,6 +109,16 @@ class createPatient extends React.Component {
             dateReferred = { dateReferred }
             dateOfBirth = { props.dateOfBirth}
             dateReffered = { props.dateReferred }
+            prefferedPhone ={prefferedPhone}
+            homePhone ={homePhone}
+            workPhone ={workPhone}
+            cellPhone ={cellPhone}
+            referringProviderCheckStatus = {referringProviderCheckStatus}
+            communicationPreferenceCall ={communicationPreferenceCall}
+            communicationPreferenceEmail ={communicationPreferenceEmail}
+            communicationPreferenceSms ={communicationPreferenceSms}
+            allowSaturdayCommunication ={allowSaturdayCommunication}
+            allowSundayCommunication ={allowSundayCommunication}
         />
     )
 }

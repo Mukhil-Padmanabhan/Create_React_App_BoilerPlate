@@ -11,13 +11,14 @@ class PatientList extends React.Component {
     }
     
     componentWillMount() {
+        debugger;
         this.getPatientList()
     }
 
     async getPatientList() {
         var { email } = this.props;
-        var { getPatientsList } = this.props.actions;
-        const resp = await getPatientsList(email);
+        var { getPatients } = this.props.actions;
+        const resp = await getPatients();
         console.log('resp', resp)
     }
 

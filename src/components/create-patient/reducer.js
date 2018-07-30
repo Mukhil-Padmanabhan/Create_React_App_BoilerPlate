@@ -25,6 +25,14 @@ export default function createPatientReducer(state = initialState, action = {}) 
                 preferredLanguage: action.preferredLanguage,
                 referredByPhysician: action.referredByPhysician,
                 referringProvider: action.referringProvider,
+                dateReferred: action.dateReferred,
+                email :  action.email,
+                emergencyName :  action.emergencyName,
+                emergencyRelationship :  action.emergencyRelationship,
+                emergencyPhoneNumber :  action.emergencyPhoneNumber,
+                emergencyName2 :  action.emergencyName2,
+                emergencyRelationship2 :  action.emergencyRelationship2,
+                patientTimeZone : action.patientTimeZone,
             }
         case types.ONCHANGE_DATE_HANDLER :
             return {
@@ -54,7 +62,12 @@ export default function createPatientReducer(state = initialState, action = {}) 
         case types.ONCHANGE_CHECKBOX_HANDLER :
             return {
                 ...state,
-                referringProviderCheckStatus : action.referringProviderCheckStatus
+                referringProviderCheckStatus : action.referringProviderCheckStatus,
+                communicationPreferenceCall :   action.communicationPreferenceCall,
+                communicationPreferenceEmail :  action.communicationPreferenceEmail,
+                communicationPreferenceSms :  action.communicationPreferenceSms,
+                allowSaturdayCommunication :   action.allowSaturdayCommunication,
+                allowSundayCommunication :   action.allowSundayCommunication,
             }
         case types.ONCLICK_POPUPOPEN_HANDLER :
             return {

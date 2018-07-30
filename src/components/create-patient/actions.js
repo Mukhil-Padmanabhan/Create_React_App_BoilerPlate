@@ -143,13 +143,20 @@ export function handlePopupClose(prop,val) {
     }
 }
 
-export function submitHandler(event ) {
-    var reqObj =  store.getState().createPatientReducer
-    return  function(dispatch, getState) {
-        dispatch({
-            type : types.ONCHANGE_RADIO_HANDLER,
-            reqObj : reqObj
-        })
+export function submitHandler(reqObj) {
+    let options =  {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type' : 'application/json'
+        },
+        body : JSON.stringify(reqObj)
+    }
+    return  async function() {
+        return  await fetch(`http://localhost:5000/createPatient`, options)
+            .then(response => {
+                console.log('response', response)
+            })
     }
 }
 

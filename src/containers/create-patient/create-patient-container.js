@@ -74,6 +74,11 @@ export default class CreatePatientContainer extends React.Component {
             dateReferred ,city, cityName ,state, stateName, handleRadioChange,
             handleCheckboxChange ,referringProviderCheckStatus,handleClose,handleShow,
             show ,hide} = this.props;
+        let communicationPreferenceCall = this.props.communicationPreferenceCall ? JSON.parse(this.props.communicationPreferenceCall) : "true"
+        let communicationPreferenceEmail = this.props.communicationPreferenceEmail ? JSON.parse(this.props.communicationPreferenceEmail) : "true"
+        let communicationPreferenceSms = this.props.communicationPreferenceSms ? JSON.parse(this.props.communicationPreferenceSms) : "true"
+        let allowSaturdayCommunication = this.props.allowSaturdayCommunication ? JSON.parse(this.props.allowSaturdayCommunication) : "true"
+        let allowSundayCommunication = this.props.allowSundayCommunication ?  JSON.parse(this.props.allowSundayCommunication) : "true"
         return (
             //<div> Hi </div>
             <Form className="tab-content" horizontal onSubmit={handleSubmit}>
@@ -115,7 +120,7 @@ export default class CreatePatientContainer extends React.Component {
                                             <font color="red" className="ng-scope">*</font>
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder=""  required="required" onBlur={handleBlur} name="firstName"/>
+                                            <FormControl type="text" placeholder=""   onBlur={handleBlur} name="firstName"/>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup >
@@ -124,7 +129,7 @@ export default class CreatePatientContainer extends React.Component {
                                             <font color="red" className="ng-scope">*</font>
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder="" required="required" onBlur={handleBlur} name="middleName"/>
+                                            <FormControl type="text" placeholder=""  onBlur={handleBlur} name="middleName"/>
                                         </Col>
                                     </FormGroup>
 
@@ -134,7 +139,7 @@ export default class CreatePatientContainer extends React.Component {
                                             <font color="red" className="ng-scope">*</font>
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder="" required="required" onBlur={handleBlur} name="lastName"/>
+                                            <FormControl type="text" placeholder=""  onBlur={handleBlur} name="lastName"/>
                                         </Col>
                                     </FormGroup>
 
@@ -144,7 +149,7 @@ export default class CreatePatientContainer extends React.Component {
                                             <font color="red" className="ng-scope">*</font>
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder="" required="required" onBlur={handleBlur}  name="placeOfService"/>
+                                            <FormControl type="text" placeholder=""  onBlur={handleBlur}  name="placeOfService"/>
                                         </Col>
                                     </FormGroup>
 
@@ -171,7 +176,7 @@ export default class CreatePatientContainer extends React.Component {
                                             <font color="red" >*</font>
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder="" required="required" onBlur={handleBlur} name="address1"/>
+                                            <FormControl type="text" placeholder=""  onBlur={handleBlur} name="address1"/>
                                         </Col>
                                     </FormGroup>
 
@@ -180,7 +185,7 @@ export default class CreatePatientContainer extends React.Component {
                                             Address 2
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder="" required="required" onBlur={handleBlur} name="address2"/>
+                                            <FormControl type="text" placeholder=""  onBlur={handleBlur} name="address2"/>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup >
@@ -189,7 +194,7 @@ export default class CreatePatientContainer extends React.Component {
                                             <font color="red" >*</font>
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder="" required="required" onBlur={handleBlur} name="zip"/>
+                                            <FormControl type="text" placeholder=""  onBlur={handleBlur} name="zip"/>
                                         </Col>
                                     </FormGroup>
 
@@ -273,7 +278,7 @@ export default class CreatePatientContainer extends React.Component {
                                             <font color="red" >*</font>
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder="" required="required" onBlur={handleBlur} name="ssn"/>
+                                            <FormControl type="text" placeholder=""  onBlur={handleBlur} name="ssn"/>
                                         </Col>
                                     </FormGroup>
 
@@ -317,7 +322,7 @@ export default class CreatePatientContainer extends React.Component {
                                             <font color="red" >*</font>
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder="" required="required" onBlur={handleBlur}  name="employmentStatus"/>
+                                            <FormControl type="text" placeholder=""  onBlur={handleBlur}  name="employmentStatus"/>
                                         </Col>
                                     </FormGroup>
 
@@ -327,7 +332,7 @@ export default class CreatePatientContainer extends React.Component {
                                             <font color="red" >*</font>
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder="" required="required" onBlur={handleBlur} name="ethnicity"/>
+                                            <FormControl type="text" placeholder=""  onBlur={handleBlur} name="ethnicity"/>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup >
@@ -335,7 +340,7 @@ export default class CreatePatientContainer extends React.Component {
                                             Preferred Language
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder="" required="required" onBlur={handleBlur} name="preferredLanguage"/>
+                                            <FormControl type="text" placeholder=""  onBlur={handleBlur} name="preferredLanguage"/>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup >
@@ -353,7 +358,7 @@ export default class CreatePatientContainer extends React.Component {
                                             Referring Provider
                                         </Col>
                                         <Col  lg={4} sm={4} md={4} xs={4}>
-                                            <FormControl type="text" placeholder="" required="required" onBlur={handleBlur}  name="referringProvider"/>
+                                            <FormControl type="text" placeholder=""  onBlur={handleBlur}  name="referringProvider"/>
                                         </Col>
                                         <Col  lg={2} sm={2} md={2} xs={2}>
                                             <button type="button" className="btn btn-success btn-circle btn-lg"  onClick={handleShow.bind(this,true)}><i className="glyphicon glyphicon-plus"></i></button>
@@ -389,11 +394,11 @@ export default class CreatePatientContainer extends React.Component {
                                 <div>
                                     <FormGroup >
                                         <Col componentClass={ControlLabel} lg={6} sm={6} md={6} xs={6} >
-                                            Prferred Phone
+                                            Preferred Phone
                                             <font color="red" >*</font>
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder=""  required="required" onBlur={handleBlur}  name="prefferedPhone"/>
+                                            <FormControl type="text" placeholder=""   onBlur={handleBlur}  name="prefferedPhone"/>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup >
@@ -402,7 +407,7 @@ export default class CreatePatientContainer extends React.Component {
                                             <font color="red" >*</font>
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder="" required="required"  onBlur={handleBlur}  name="homePhone"/>
+                                            <FormControl type="text" placeholder=""   onBlur={handleBlur}  name="homePhone"/>
                                         </Col>
                                     </FormGroup>
 
@@ -411,7 +416,7 @@ export default class CreatePatientContainer extends React.Component {
                                             Work Phone
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder="" required="required" onBlur={handleBlur}  name="workPhone"/>
+                                            <FormControl type="text" placeholder=""  onBlur={handleBlur}  name="workPhone"/>
                                         </Col>
                                     </FormGroup>
 
@@ -420,7 +425,7 @@ export default class CreatePatientContainer extends React.Component {
                                             Cell Phone
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder="" required="required" onBlur={handleBlur}  name="cellPhone"/>
+                                            <FormControl type="text" placeholder=""  onBlur={handleBlur}  name="cellPhone"/>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup >
@@ -428,7 +433,7 @@ export default class CreatePatientContainer extends React.Component {
                                             Other Phone
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder="" required="required" onBlur={handleBlur}  name="otherPhone"/>
+                                            <FormControl type="text" placeholder=""  onBlur={handleBlur}  name="otherPhone"/>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup >
@@ -437,7 +442,7 @@ export default class CreatePatientContainer extends React.Component {
                                             <font color="red" >*</font>
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder="" required="required" onBlur={handleBlur}  name="email"/>
+                                            <FormControl type="text" placeholder=""  onBlur={handleBlur}  name="email"/>
                                         </Col>
                                     </FormGroup>
 
@@ -453,7 +458,7 @@ export default class CreatePatientContainer extends React.Component {
                                          Name
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder="" required="required"  onBlur={handleBlur}  name="emergencyName"/>
+                                            <FormControl type="text" placeholder=""   onBlur={handleBlur}  name="emergencyName"/>
                                         </Col>
                                     </FormGroup>
 
@@ -462,7 +467,7 @@ export default class CreatePatientContainer extends React.Component {
                                              Relationship
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder="" required="required" onBlur={handleBlur}  name="emergencyRelationship"/>
+                                            <FormControl type="text" placeholder=""  onBlur={handleBlur}  name="emergencyRelationship"/>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup >
@@ -470,7 +475,7 @@ export default class CreatePatientContainer extends React.Component {
                                            Phone Number
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl placeholder="" type="number" required="required"  onBlur={handleBlur}  name="emergencyPhoneNumber"/>
+                                            <FormControl placeholder="" type="number"   onBlur={handleBlur}  name="emergencyPhoneNumber"/>
                                         </Col>
                                     </FormGroup>
                                 </div>
@@ -490,7 +495,7 @@ export default class CreatePatientContainer extends React.Component {
                                             Name
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder="" required="required"  onBlur={handleBlur}  name="emergencyName2"/>
+                                            <FormControl type="text" placeholder=""   onBlur={handleBlur}  name="emergencyName2"/>
                                         </Col>
                                     </FormGroup>
 
@@ -499,7 +504,7 @@ export default class CreatePatientContainer extends React.Component {
                                             Relationship
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder="" required="required" onBlur={handleBlur}  name="emergencyRelationship2"/>
+                                            <FormControl type="text" placeholder=""  onBlur={handleBlur}  name="emergencyRelationship2"/>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup >
@@ -507,7 +512,7 @@ export default class CreatePatientContainer extends React.Component {
                                             Phone Number
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl placeholder="" type="number" required="required" onBlur={handleBlur}  name="patientTimeZone"/>
+                                            <FormControl placeholder="" type="number"  onBlur={handleBlur}  name="patientTimeZone"/>
                                         </Col>
                                     </FormGroup>
                                     <div>
@@ -516,27 +521,27 @@ export default class CreatePatientContainer extends React.Component {
                                     <br/>
                                     <FormGroup>
                                         <Col  componentClass={ControlLabel} lg={12} sm={12} md={12} xs={12} bsSize="large">
-                                            <Checkbox className="" checked={referringProviderCheckStatus ?  "true" :"false"  } onChange={ e => this.handleCheckbox("referringProviderCheckStatus",e.target.checked)} name="communicationPreferenceCall" className="pull-left" >Call</Checkbox>
+                                            <Checkbox className="" checked={ communicationPreferenceCall  } onChange={ e => this.handleCheckbox("communicationPreferenceCall",e.target.checked.toString())} name="communicationPreferenceCall" className="pull-left" >Call</Checkbox>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup>
                                         <Col  componentClass={ControlLabel} lg={12} sm={12} md={12} xs={12} bsSize="large">
-                                            <Checkbox className="" checked={referringProviderCheckStatus ?  "true" :"false"  } onChange={ e => this.handleCheckbox("referringProviderCheckStatus",e.target.checked)} name="communicationPreferenceEmail"  name="referringProviderCemailheckStatus" className="pull-left"  >  Email </Checkbox>
+                                            <Checkbox className="" checked={communicationPreferenceEmail   } onChange={ e => this.handleCheckbox("communicationPreferenceEmail",e.target.checked.toString())} name="communicationPreferenceEmail"  name="referringProviderCemailheckStatus" className="pull-left"  >  Email </Checkbox>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup>
                                         <Col  componentClass={ControlLabel} lg={12} sm={12} md={12} xs={12} bsSize="large">
-                                            <Checkbox className="" checked={referringProviderCheckStatus ?  "true" :"false"  } onChange={ e => this.handleCheckbox("referringProviderCheckStatus",e.target.checked)} name="communicationPreferenceSms" name="sms"className="pull-left"> SMS</Checkbox>
+                                            <Checkbox className="" checked={communicationPreferenceSms   } onChange={ e => this.handleCheckbox("communicationPreferenceSms",e.target.checked.toString())} name="communicationPreferenceSms" name="sms"className="pull-left"> SMS</Checkbox>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup>
                                     <Col  componentClass={ControlLabel} lg={12} sm={12} md={12} xs={12} bsSize="large">
-                                        <Checkbox className="" checked={referringProviderCheckStatus ?  "true" :"false"  } onChange={ e => this.handleCheckbox("referringProviderCheckStatus",e.target.checked)} name="allowSaturdayCommunication" className="pull-left">  Allow Saturday Communication </Checkbox>
+                                        <Checkbox className="" checked={allowSaturdayCommunication  } onChange={ e => this.handleCheckbox("allowSaturdayCommunication",e.target.checked.toString())} name="allowSaturdayCommunication" className="pull-left">  Allow Saturday Communication </Checkbox>
                                     </Col>
                                 </FormGroup>
                                 <FormGroup>
                                     <Col  componentClass={ControlLabel} lg={12} sm={12} md={12} xs={12} bsSize="large">
-                                        <Checkbox className="" checked={referringProviderCheckStatus ?  "true" :"false"  } onChange={ e => this.handleCheckbox("referringProviderCheckStatus",e.target.checked)} name="allowSundayCommunication" name="sundayCommunication" className="pull-left">  Allow Sunday Communication </Checkbox>
+                                        <Checkbox className="" checked={allowSundayCommunication  } onChange={ e => this.handleCheckbox("allowSundayCommunication",e.target.checked.toString())} name="allowSundayCommunication" name="sundayCommunication" className="pull-left">  Allow Sunday Communication </Checkbox>
                                     </Col>
                                 </FormGroup>
                                 <FormGroup >
@@ -544,7 +549,7 @@ export default class CreatePatientContainer extends React.Component {
                                         Patient Time Zone
                                     </Col>
                                     <Col  lg={6} sm={6} md={6} xs={6}>
-                                        <FormControl type="text" placeholder="" required="required"/>
+                                        <FormControl type="text" placeholder="" />
                                     </Col>
                                 </FormGroup>
                                 </div>
@@ -555,7 +560,7 @@ export default class CreatePatientContainer extends React.Component {
                         <div className="row marginTopNegativeClass">
                             <ButtonToolbar>
                                 <Button bsStyle="danger" className="buttonTabText pull-right">Cancel</Button>
-                                <Button bsStyle="success" className="buttonTabText pull-right"  type="submit" onClick={handleSubmit.bind(this)}>Save</Button>
+                                <Button bsStyle="success" className="buttonTabText pull-right"  type="submit" >Save</Button>
                                 <Button bsStyle="info" className="buttonTabText pull-right">Site Settings</Button>
                                 <Button bsStyle="primary" className="buttonTabText pull-right">Notes</Button>
                                 <Button className="buttonTabText pull-right" >   Face Sheet</Button>
@@ -564,7 +569,6 @@ export default class CreatePatientContainer extends React.Component {
                         </div>
                     </div>
                 </Grid>
-
             </Form>
         )
     }
