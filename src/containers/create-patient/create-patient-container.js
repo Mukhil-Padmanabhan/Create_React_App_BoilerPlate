@@ -113,7 +113,7 @@ export default class CreatePatientContainer extends React.Component {
                                             <font color="red" className="ng-scope">*</font>
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder=""   onBlur={handleBlur} name="firstName"/>
+                                            <FormControl type="text" placeholder=""   onBlur={handleBlur} name="firstName" required="required"/>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup >
@@ -122,7 +122,7 @@ export default class CreatePatientContainer extends React.Component {
                                             <font color="red" className="ng-scope">*</font>
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder=""  onBlur={handleBlur} name="middleName"/>
+                                            <FormControl type="text" placeholder=""  onBlur={handleBlur} name="middleName" required="required"/>
                                         </Col>
                                     </FormGroup>
 
@@ -132,7 +132,7 @@ export default class CreatePatientContainer extends React.Component {
                                             <font color="red" className="ng-scope">*</font>
                                         </Col>
                                         <Col  lg={6} sm={6} md={6} xs={6}>
-                                            <FormControl type="text" placeholder=""  onBlur={handleBlur} name="lastName"/>
+                                            <FormControl type="text" placeholder=""  onBlur={handleBlur} name="lastName" required="required"/>
                                         </Col>
                                     </FormGroup>
 
