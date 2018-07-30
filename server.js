@@ -23,9 +23,8 @@ app.post('/login', function(req, res)  {
 });
 
 
-app.get('/createPatient', function() {
-    mongoUtilities.createCollection("TestDB", "Patients");
-    mongoUtilities.insertData("TestDB", "Patients", function(err, result) {
+app.get('/getPatientList', function() {
+    mongoUtilities.getData("TestDB", "Patients", function(err, result) {
         if (err) throw err;
         return result;
     });

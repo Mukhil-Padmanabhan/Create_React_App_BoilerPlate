@@ -7,10 +7,6 @@ export default class LoginContainer extends Component {
     super(props);
   }
 
-  componentWillMount() {
-  console.log('this.props', this.props)
-  }
-
   render() {
     var {handleSubmit, handleChange, validateForm } = this.props;
     return (
@@ -37,7 +33,6 @@ export default class LoginContainer extends Component {
             block
             className="btn btn-primary"
             bsSize="large"
-            disabled={!validateForm}
             type="submit"
           >
             Login

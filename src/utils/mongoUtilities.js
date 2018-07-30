@@ -35,6 +35,18 @@ var insertData = (dbName, collName, data) => {
       });
 }
 
+
+var getData = (dbName, collName, data) => {
+    MongoClient.connect(baseUrl, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db(dbName);
+        dbo.collection(collName).find(data, function(err, res) {
+          if (err) throw err;
+          console.log('res')
+        });
+      });
+}
+
 var closeDbConnection = () => {
     MongoClient.connect(url, function(err, db) {
         db.close();
