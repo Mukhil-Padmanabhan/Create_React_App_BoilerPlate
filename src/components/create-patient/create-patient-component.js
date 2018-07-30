@@ -130,7 +130,24 @@ function mapStateToProps(store) {
         dateReferred: store.createPatientReducer.dateReferred,
         referringProviderCheckStatus : store.createPatientReducer.referringProviderCheckStatus,
         show : store.createPatientReducer.show,
-        hide :store.createPatientReducer.hide
+        hide : store.createPatientReducer.hide,
+        prefferedPhone :  store.createPatientReducer.prefferedPhone,
+        homePhone :   store.createPatientReducer.homePhone,
+        workPhone :  store.createPatientReducer.workPhone,
+        cellPhone :   store.createPatientReducer.cellPhone,
+        otherPhone :   store.createPatientReducer.otherPhone,
+        email :   store.createPatientReducer.email,
+        emergencyName :   store.createPatientReducer.emergencyName,
+        emergencyRelationship :   store.createPatientReducer.emergencyRelationship,
+        emergencyPhoneNumber :   store.createPatientReducer.emergencyPhoneNumber,
+        emergencyName2 :   store.createPatientReducer.emergencyName2,
+        emergencyRelationship2 :   store.createPatientReducer.emergencyRelationship2,
+        patientTimeZone :   store.createPatientReducer.patientTimeZone,
+        communicationPreferenceCall :   store.createPatientReducer.communicationPreferenceCall,
+        communicationPreferenceEmail :  store.createPatientReducer.communicationPreferenceEmail,
+        communicationPreferenceSms :  store.createPatientReducer.communicationPreferenceSms,
+        allowSaturdayCommunication :  store.createPatientReducer.allowSaturdayCommunication,
+        allowSundayCommunication :  store.createPatientReducer.allowSundayCommunication,
 
     }
 }
