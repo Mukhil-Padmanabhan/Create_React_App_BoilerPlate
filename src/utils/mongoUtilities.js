@@ -6,7 +6,7 @@ var createDatabase = dbName => {
     MongoClient.connect(baseUrl+dbName, function(err, db) {
         if (err) throw err;
         console.log(`Database ${dbName} created!`);
-      });
+    });
 }
 
 var createCollection = (dbName, collName) => {
@@ -46,5 +46,4 @@ module.exports = {
     createCollection,
     insertData,
     closeDbConnection,
-    // dropDatabase
 }

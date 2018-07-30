@@ -15,6 +15,7 @@ export  function onChangeHandler(event) {
   }
 
   export  function onLogin(requestModel) {
+    console.log('onLogin', requestModel)
       let options =  {
           method: 'POST',
           headers: {
