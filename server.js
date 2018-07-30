@@ -33,8 +33,8 @@ app.post('/createPatient', function(req, res)  {
 
 
 
-app.get('/getPatientList', function() {
-    mongoUtilities.getData("TestDB", "patients", function(err, result) {
+app.get('/getPatientList', function(req, res) {
+    mongoUtilities.getData("TestDB", "patients", req.body, function(err, result) {
         if (err) throw err;
         return result;
     });

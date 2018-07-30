@@ -40,7 +40,7 @@ var getData = (dbName, collName, data) => {
     MongoClient.connect(baseUrl, function(err, db) {
         if (err) throw err;
         var dbo = db.db(dbName);
-        dbo.collection(collName).find(data, function(err, res) {
+        dbo.collection(collName).find({},function(err, res) {
           if (err) throw err;
           console.log('res')
         });
