@@ -23,7 +23,7 @@ class Login extends React.Component {
         var requestObject ={};
         var length =  event.target.length; 
         for(var i = 0; i < length - 1; i++) requestObject[event.target[i].id] = event.target[i].value;
-        //onLogin(requestObject);
+        onLogin(requestObject);
         routerProps.history.push('/patientList');
     }
 

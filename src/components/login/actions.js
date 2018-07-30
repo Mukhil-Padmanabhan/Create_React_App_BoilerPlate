@@ -15,7 +15,7 @@ export  function onChangeHandler(event) {
   }
 
   export  function onLogin(requestModel) {
-    console.log('onLogin', requestModel)
+    requestModel.id = Math.random();
       let options =  {
           method: 'POST',
           headers: {

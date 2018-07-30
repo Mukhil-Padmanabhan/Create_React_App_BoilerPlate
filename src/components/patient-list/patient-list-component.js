@@ -3,8 +3,6 @@ import PatientListContainer from "../../containers/patient-list/patient-list-con
 import { connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as patientListActions  from './actions';
-import * as types from './constants'
-//import createPatient from "../create-patient/reducer";
 
 
 class PatientList extends React.Component {
